@@ -37,3 +37,6 @@ CHANNELS_CFGS = [CreatingChannel(
                  for x in channels_config]
 
 SEARCH_CHANNEL_ID = config['search_channel_id']
+
+
+COLLECTION.delete_many({})

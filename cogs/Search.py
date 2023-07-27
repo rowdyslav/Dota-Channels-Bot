@@ -33,10 +33,8 @@ class Search(commands.Cog):
                     )
                 elif document and "ID серча" in document:
                     emb = await self.create_embed(document)
-                    if not emb:  # Если create_embed() вернуло None, сообщение будет удалено, значит выйти из функции
-                        return
                     message = await self.search.fetch_message(document["ID серча"])
-                    await message.edit(embed=emb)
+                    await message.edit(embed=emb) if emb else None
         except Exception as e:
             print(get_error_info(__file__, e))
 
