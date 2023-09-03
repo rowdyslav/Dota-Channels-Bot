@@ -1,5 +1,7 @@
 from discord.ext import commands
 import discord
+import pymorphy3
+
 from setup import SEARCH_CHANNEL_ID
 from setup import COLLECTION as DB_CHANNELS
 
@@ -10,6 +12,7 @@ class Search(commands.Cog):
     def __init__(self, client):
         self.search = None  # discord.TextChannel в on_ready()
         self.client: discord.Client = client
+        self.ma = pymorphy3.MorphAnalyzer()
 
     @commands.Cog.listener()
     async def on_voice_state_update(self, member, before, after):
@@ -47,8 +50,9 @@ class Search(commands.Cog):
         embed = discord.Embed()
         if not voice.members:  # Если участников нет то войс и сообщение будут удалены в RemoveEmpty.py
             return None
+        number = voice.user_limit - len(voice.members)
         embed.set_author(
-            name=f"📢▸ Поиск +{voice.user_limit - len(voice.members)} игроков",
+            name=f"📢▸ Поиск +{number} {self.ma.parse('игрок')[0].make_agree_with_number(number).word}",
         )
         embed.set_thumbnail(url=voice.members[0].avatar)
         desc = []

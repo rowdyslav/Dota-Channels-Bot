@@ -1,9 +1,9 @@
 channels:
   ranked:
     voice_name: "Ранкед #{}" # {} В названии заменяются на номер
-    lobby_id: 1134189922509668402
-    categ_id: 1134190018957684779
-    user_limit: 5
+    lobby_id: 1133679086091386960
+    categ_id: 1125505490026237953
+    user_limit: 2
   turbo:
     voice_name: "Турбач #{}"
     lobby_id: 1134189950506639491
@@ -15,6 +15,8 @@ channels:
     categ_id: 1134190049534161067
     user_limit: 10
 
-search_channel_id: 1134189623942324294
+search_channel_id: 1133413896800182362
 
-mongodb_link: "mongodb+srv://rowdyslav:228doxy228@cluster0.736skbi.mongodb.net/?retryWrites=true&w=majority"
+
+db_name: dota_bot
+coll_name: voice_channels

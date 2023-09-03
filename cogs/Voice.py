@@ -1,7 +1,7 @@
 from discord.ext import commands
 import discord
 # import asyncio
-from setup import CHANNELS_CFGS
+from setup import LIVE_CHANNELS
 from setup import COLLECTION as DB_CHANNELS
 
 from setup import get_error_info
@@ -17,7 +17,7 @@ class Voice(commands.Cog):
             return
         try:
             channel_id = after.channel.id
-            worked = list(filter(lambda x: x.lobby_id == channel_id, CHANNELS_CFGS))
+            worked = list(filter(lambda x: x.lobby_id == channel_id, LIVE_CHANNELS))
             if worked:
                 cfg = worked[0]
                 categ = self.client.get_channel(cfg.categ_id)
