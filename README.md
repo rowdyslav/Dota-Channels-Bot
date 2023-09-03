@@ -1,1 +1,1 @@
-# Dota-Channels-Bot - high configurable temporary channels bot
+# LiveChannelsBot - high configurable temporary channels bot
